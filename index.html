@@ -8,9 +8,15 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ESTIMO – Spielanleitung</title>
+  <title>ESTIMO</title>
 
   <style>
+
+    * {
+
+      box-sizing: border-box;
+
+    }
 
     body {
 
@@ -28,11 +34,11 @@
 
     .container {
 
-      max-width: 600px;
+      max-width: 650px;
 
       margin: auto;
 
-      padding: 70px 24px;
+      padding: 55px 20px;
 
     }
 
@@ -42,7 +48,9 @@
 
       font-weight: 400;
 
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
+
+      letter-spacing: 2px;
 
     }
 
@@ -52,67 +60,343 @@
 
       justify-content: center;
 
-      gap: 10px;
+      gap: 8px;
 
-      margin: 0 0 50px 0;
+      margin-bottom: 45px;
 
     }
 
     .colors span {
 
-      width: 55px;
+      width: 50px;
 
-      height: 8px;
+      height: 7px;
 
       display: block;
 
     }
 
-    .red { background: #d92828; }
+    .red {
 
-    .blue { background: #174f96; }
+      background: #d92828;
 
-    .yellow { background: #e4a313; }
+    }
 
-    .green { background: #34782d; }
+    .blue {
+
+      background: #174f96;
+
+    }
+
+    .yellow {
+
+      background: #e4a313;
+
+    }
+
+    .green {
+
+      background: #34782d;
+
+    }
 
     h2 {
 
       font-size: 28px;
 
-      margin: 0 0 16px 0;
+      margin: 0 0 12px;
+
+    }
+
+    h3 {
+
+      font-size: 22px;
+
+      margin-top: 30px;
 
     }
 
     p {
 
-      font-size: 18px;
-
-      line-height: 1.5;
-
       color: #d8dce3;
 
-      margin-bottom: 30px;
+      font-size: 17px;
+
+      line-height: 1.5;
 
     }
 
     .button {
 
-      display: inline-block;
+      width: 100%;
 
-      padding: 16px 28px;
+      max-width: 360px;
+
+      display: block;
+
+      margin: 12px auto;
+
+      padding: 16px 20px;
 
       background: white;
 
       color: #07111f;
 
-      text-decoration: none;
+      border: none;
 
       border-radius: 12px;
 
       font-weight: bold;
 
+      font-size: 17px;
+
+      text-decoration: none;
+
+      cursor: pointer;
+
+    }
+
+    .secondary {
+
+      background: #182638;
+
+      color: white;
+
+    }
+
+    .hidden {
+
+      display: none !important;
+
+    }
+
+    /* SPIELERANZAHL */
+
+    .player-count {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin: 25px 0;
+
+    }
+
+    .number-button {
+
+      width: 50px;
+
+      height: 50px;
+
+      border: 2px solid #34465c;
+
+      border-radius: 10px;
+
+      background: #111e2e;
+
+      color: white;
+
       font-size: 18px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+    }
+
+    .number-button.selected {
+
+      background: white;
+
+      color: #07111f;
+
+    }
+
+    /* NAMEN */
+
+    .name-input {
+
+      width: 100%;
+
+      padding: 15px;
+
+      margin: 7px 0;
+
+      border: none;
+
+      border-radius: 10px;
+
+      font-size: 16px;
+
+    }
+
+    /* SPIELERKARTEN */
+
+    .player-card {
+
+      background: #101d2d;
+
+      padding: 18px;
+
+      border-radius: 15px;
+
+      margin: 14px 0;
+
+      text-align: left;
+
+    }
+
+    .player-name {
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      margin-bottom: 13px;
+
+    }
+
+    .label {
+
+      color: #aeb8c5;
+
+      font-size: 14px;
+
+      margin: 10px 0 8px;
+
+    }
+
+    .choice-row {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+    }
+
+    .choice {
+
+      min-width: 44px;
+
+      height: 44px;
+
+      padding: 0 12px;
+
+      border: 1px solid #405269;
+
+      border-radius: 9px;
+
+      background: #182638;
+
+      color: white;
+
+      font-size: 16px;
+
+      cursor: pointer;
+
+    }
+
+    .choice.selected {
+
+      background: white;
+
+      color: #07111f;
+
+      font-weight: bold;
+
+    }
+
+    .score {
+
+      margin-top: 14px;
+
+      font-weight: bold;
+
+    }
+
+    .round-number {
+
+      font-size: 16px;
+
+      color: #aeb8c5;
+
+      margin-bottom: 25px;
+
+    }
+
+    /* TABELLE */
+
+    .scoreboard {
+
+      width: 100%;
+
+      border-collapse: collapse;
+
+      margin-top: 20px;
+
+      background: #101d2d;
+
+      border-radius: 14px;
+
+      overflow: hidden;
+
+    }
+
+    .scoreboard th,
+
+    .scoreboard td {
+
+      padding: 14px 8px;
+
+      border-bottom: 1px solid #26384d;
+
+    }
+
+    .scoreboard th {
+
+      color: #aeb8c5;
+
+      font-size: 14px;
+
+    }
+
+    .scoreboard tr:last-child td {
+
+      border-bottom: none;
+
+    }
+
+    /* GEWINNER */
+
+    .winner {
+
+      background: #101d2d;
+
+      padding: 25px;
+
+      border-radius: 15px;
+
+      margin: 25px 0;
+
+      font-size: 21px;
+
+      line-height: 1.5;
+
+    }
+
+    .small-info {
+
+      color: #8f9baa;
+
+      font-size: 14px;
+
+      margin-top: 25px;
 
     }
 
@@ -124,35 +408,1367 @@
 
   <div class="container">
 
-    <h1>ESTIMO</h1>
+    <!-- ========================= -->
 
-    <div class="colors">
+    <!-- STARTSEITE -->
 
-      <span class="red"></span>
+    <!-- ========================= -->
 
-      <span class="blue"></span>
+    <section id="home">
 
-      <span class="yellow"></span>
+      <h1>ESTIMO</h1>
 
-      <span class="green"></span>
+      <div class="colors">
 
-    </div>
+        <span class="red"></span>
 
-    <h2>Spielanleitung</h2>
+        <span class="blue"></span>
 
-    <p>
+        <span class="yellow"></span>
 
-      Hier findest du die vollständige Spielanleitung für ESTIMO.
+        <span class="green"></span>
 
-    </p>
+      </div>
 
-    <a class="button" href="Spielanleitung.pdf">
+      <h2>Bereit für ESTIMO?</h2>
 
-      Spielanleitung öffnen
+      <p>
 
-    </a>
+        Öffne die Spielanleitung oder nutze den digitalen Punkteblock.
+
+      </p>
+
+      <a
+
+        class="button"
+
+        href="Spielanleitung.pdf"
+
+        target="_blank"
+
+      >
+
+        Spielanleitung öffnen
+
+      </a>
+
+      <button
+
+        class="button secondary"
+
+        onclick="openSetup()"
+
+      >
+
+        Punkteblock starten
+
+      </button>
+
+    </section>
+
+    <!-- ========================= -->
+
+    <!-- SPIELERANZAHL -->
+
+    <!-- ========================= -->
+
+    <section id="setup" class="hidden">
+
+      <h1>ESTIMO</h1>
+
+      <div class="colors">
+
+        <span class="red"></span>
+
+        <span class="blue"></span>
+
+        <span class="yellow"></span>
+
+        <span class="green"></span>
+
+      </div>
+
+      <h2>Wie viele Spieler?</h2>
+
+      <p>
+
+        Wählt aus, mit wie vielen Spielern ihr ESTIMO spielt.
+
+      </p>
+
+      <div
+
+        class="player-count"
+
+        id="playerCountButtons"
+
+      ></div>
+
+      <button
+
+        class="button"
+
+        onclick="createNameInputs()"
+
+      >
+
+        Weiter
+
+      </button>
+
+      <button
+
+        class="button secondary"
+
+        onclick="goHome()"
+
+      >
+
+        Zurück
+
+      </button>
+
+    </section>
+
+    <!-- ========================= -->
+
+    <!-- SPIELERNAMEN -->
+
+    <!-- ========================= -->
+
+    <section id="names" class="hidden">
+
+      <h2>Wer spielt mit?</h2>
+
+      <p>
+
+        Gebt die Namen der Spieler ein.
+
+      </p>
+
+      <div id="nameInputs"></div>
+
+      <button
+
+        class="button"
+
+        onclick="startGame()"
+
+      >
+
+        Spiel starten
+
+      </button>
+
+      <button
+
+        class="button secondary"
+
+        onclick="showSection('setup')"
+
+      >
+
+        Zurück
+
+      </button>
+
+    </section>
+
+    <!-- ========================= -->
+
+    <!-- SPIEL -->
+
+    <!-- ========================= -->
+
+    <section id="game" class="hidden">
+
+      <h2 id="roundTitle">
+
+        Runde 1
+
+      </h2>
+
+      <div
+
+        class="round-number"
+
+        id="roundInfo"
+
+      >
+
+        Jeder Spieler erhält 1 Karte.
+
+      </div>
+
+      <!-- SCHÄTZPHASE -->
+
+      <div id="guessPhase">
+
+        <h3>
+
+          Wie viele Stiche schätzt ihr?
+
+        </h3>
+
+        <p>
+
+          Tragt zuerst die Schätzung jedes Spielers ein.
+
+        </p>
+
+        <div id="guessArea"></div>
+
+        <button
+
+          class="button"
+
+          onclick="confirmGuesses()"
+
+        >
+
+          Schätzungen bestätigen
+
+        </button>
+
+      </div>
+
+      <!-- ERGEBNISPHASE -->
+
+      <div
+
+        id="resultPhase"
+
+        class="hidden"
+
+      >
+
+        <h3>
+
+          Runde gespielt?
+
+        </h3>
+
+        <p>
+
+          Tragt jetzt ein, wie viele Stiche jeder Spieler gewonnen hat.
+
+        </p>
+
+        <div id="resultArea"></div>
+
+        <button
+
+          class="button"
+
+          onclick="finishRound()"
+
+        >
+
+          Runde auswerten
+
+        </button>
+
+      </div>
+
+    </section>
+
+    <!-- ========================= -->
+
+    <!-- ZWISCHENSTAND -->
+
+    <!-- ========================= -->
+
+    <section
+
+      id="standings"
+
+      class="hidden"
+
+    >
+
+      <h2>
+
+        Zwischenstand
+
+      </h2>
+
+      <p id="completedRoundText"></p>
+
+      <div id="scoreTable"></div>
+
+      <button
+
+        class="button"
+
+        onclick="nextRound()"
+
+      >
+
+        Nächste Runde
+
+      </button>
+
+    </section>
+
+    <!-- ========================= -->
+
+    <!-- SPIELENDE -->
+
+    <!-- ========================= -->
+
+    <section
+
+      id="finish"
+
+      class="hidden"
+
+    >
+
+      <h1>ESTIMO</h1>
+
+      <div class="colors">
+
+        <span class="red"></span>
+
+        <span class="blue"></span>
+
+        <span class="yellow"></span>
+
+        <span class="green"></span>
+
+      </div>
+
+      <h2>
+
+        Spielende
+
+      </h2>
+
+      <div id="winnerArea"></div>
+
+      <h3>
+
+        Endstand
+
+      </h3>
+
+      <div id="finalTable"></div>
+
+      <button
+
+        class="button"
+
+        onclick="newGame()"
+
+      >
+
+        Neues Spiel
+
+      </button>
+
+    </section>
 
   </div>
+
+<script>
+
+  /* ========================= */
+
+  /* SPIELDATEN */
+
+  /* ========================= */
+
+  let playerCount = 2;
+
+  let players = [];
+
+  let round = 1;
+
+  /* ========================= */
+
+  /* SPIELERANZAHL */
+
+  /* ========================= */
+
+  const countContainer =
+
+    document.getElementById("playerCountButtons");
+
+  for (let i = 2; i <= 7; i++) {
+
+    const button =
+
+      document.createElement("button");
+
+    button.innerText = i;
+
+    button.className =
+
+      "number-button";
+
+    if (i === 2) {
+
+      button.classList.add("selected");
+
+    }
+
+    button.onclick = function() {
+
+      playerCount = i;
+
+      document
+
+        .querySelectorAll(".number-button")
+
+        .forEach(button => {
+
+          button.classList.remove("selected");
+
+        });
+
+      button.classList.add("selected");
+
+    };
+
+    countContainer.appendChild(button);
+
+  }
+
+  /* ========================= */
+
+  /* SEITEN WECHSELN */
+
+  /* ========================= */
+
+  function showSection(id) {
+
+    document
+
+      .querySelectorAll("section")
+
+      .forEach(section => {
+
+        section.classList.add("hidden");
+
+      });
+
+    document
+
+      .getElementById(id)
+
+      .classList.remove("hidden");
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+  }
+
+  function openSetup() {
+
+    showSection("setup");
+
+  }
+
+  function goHome() {
+
+    showSection("home");
+
+  }
+
+  /* ========================= */
+
+  /* NAMEN EINGEBEN */
+
+  /* ========================= */
+
+  function createNameInputs() {
+
+    const area =
+
+      document.getElementById("nameInputs");
+
+    area.innerHTML = "";
+
+    for (
+
+      let i = 1;
+
+      i <= playerCount;
+
+      i++
+
+    ) {
+
+      const input =
+
+        document.createElement("input");
+
+      input.className =
+
+        "name-input";
+
+      input.placeholder =
+
+        "Spieler " + i;
+
+      input.id =
+
+        "playerName" + i;
+
+      area.appendChild(input);
+
+    }
+
+    showSection("names");
+
+  }
+
+  /* ========================= */
+
+  /* SPIEL STARTEN */
+
+  /* ========================= */
+
+  function startGame() {
+
+    players = [];
+
+    for (
+
+      let i = 1;
+
+      i <= playerCount;
+
+      i++
+
+    ) {
+
+      const input =
+
+        document.getElementById(
+
+          "playerName" + i
+
+        );
+
+      const value =
+
+        input.value.trim();
+
+      players.push({
+
+        name:
+
+          value ||
+
+          "Spieler " + i,
+
+        total: 0,
+
+        guess: null,
+
+        won: null,
+
+        lastPoints: 0
+
+      });
+
+    }
+
+    round = 1;
+
+    renderRound();
+
+    showSection("game");
+
+  }
+
+  /* ========================= */
+
+  /* RUNDE ANZEIGEN */
+
+  /* ========================= */
+
+  function renderRound() {
+
+    document
+
+      .getElementById("roundTitle")
+
+      .innerText =
+
+        "Runde " + round;
+
+    document
+
+      .getElementById("roundInfo")
+
+      .innerText =
+
+        "Jeder Spieler erhält " +
+
+        round +
+
+        (
+
+          round === 1
+
+            ? " Karte."
+
+            : " Karten."
+
+        );
+
+    document
+
+      .getElementById("guessPhase")
+
+      .classList.remove("hidden");
+
+    document
+
+      .getElementById("resultPhase")
+
+      .classList.add("hidden");
+
+    const area =
+
+      document.getElementById("guessArea");
+
+    area.innerHTML = "";
+
+    players.forEach(
+
+      (player, index) => {
+
+        player.guess = null;
+
+        player.won = null;
+
+        const card =
+
+          document.createElement("div");
+
+        card.className =
+
+          "player-card";
+
+        card.innerHTML = `
+
+          <div class="player-name">
+
+            ${escapeHTML(player.name)}
+
+          </div>
+
+          <div class="label">
+
+            Geschätzte Stiche
+
+          </div>
+
+          <div
+
+            class="choice-row"
+
+            id="guess-${index}"
+
+          ></div>
+
+          <div class="score">
+
+            Gesamt:
+
+            ${player.total}
+
+            Punkte
+
+          </div>
+
+        `;
+
+        area.appendChild(card);
+
+        createChoices(
+
+          "guess",
+
+          index
+
+        );
+
+      }
+
+    );
+
+  }
+
+  /* ========================= */
+
+  /* ZAHLENBUTTONS */
+
+  /* ========================= */
+
+  function createChoices(
+
+    type,
+
+    playerIndex
+
+  ) {
+
+    const row =
+
+      document.getElementById(
+
+        type +
+
+        "-" +
+
+        playerIndex
+
+      );
+
+    for (
+
+      let number = 0;
+
+      number <= round;
+
+      number++
+
+    ) {
+
+      const button =
+
+        document.createElement("button");
+
+      button.className =
+
+        "choice";
+
+      button.innerText =
+
+        number;
+
+      button.onclick =
+
+        function() {
+
+          row
+
+            .querySelectorAll(".choice")
+
+            .forEach(button => {
+
+              button
+
+                .classList
+
+                .remove("selected");
+
+            });
+
+          button
+
+            .classList
+
+            .add("selected");
+
+          players[playerIndex][type] =
+
+            number;
+
+        };
+
+      row.appendChild(button);
+
+    }
+
+  }
+
+  /* ========================= */
+
+  /* SCHÄTZUNGEN BESTÄTIGEN */
+
+  /* ========================= */
+
+  function confirmGuesses() {
+
+    for (
+
+      const player of players
+
+    ) {
+
+      if (
+
+        player.guess === null
+
+      ) {
+
+        alert(
+
+          "Bitte für jeden Spieler eine Schätzung auswählen."
+
+        );
+
+        return;
+
+      }
+
+    }
+
+    document
+
+      .getElementById("guessPhase")
+
+      .classList.add("hidden");
+
+    document
+
+      .getElementById("resultPhase")
+
+      .classList.remove("hidden");
+
+    const area =
+
+      document.getElementById("resultArea");
+
+    area.innerHTML = "";
+
+    players.forEach(
+
+      (player, index) => {
+
+        const card =
+
+          document.createElement("div");
+
+        card.className =
+
+          "player-card";
+
+        card.innerHTML = `
+
+          <div class="player-name">
+
+            ${escapeHTML(player.name)}
+
+          </div>
+
+          <div class="label">
+
+            Geschätzt:
+
+            <strong>
+
+              ${player.guess}
+
+            </strong>
+
+          </div>
+
+          <div class="label">
+
+            Gewonnene Stiche
+
+          </div>
+
+          <div
+
+            class="choice-row"
+
+            id="won-${index}"
+
+          ></div>
+
+          <div class="score">
+
+            Gesamt:
+
+            ${player.total}
+
+            Punkte
+
+          </div>
+
+        `;
+
+        area.appendChild(card);
+
+        createChoices(
+
+          "won",
+
+          index
+
+        );
+
+      }
+
+    );
+
+    window.scrollTo({
+
+      top: 0,
+
+      behavior: "smooth"
+
+    });
+
+  }
+
+  /* ========================= */
+
+  /* RUNDE AUSWERTEN */
+
+  /* ========================= */
+
+  function finishRound() {
+
+    for (
+
+      const player of players
+
+    ) {
+
+      if (
+
+        player.won === null
+
+      ) {
+
+        alert(
+
+          "Bitte für jeden Spieler die gewonnenen Stiche auswählen."
+
+        );
+
+        return;
+
+      }
+
+    }
+
+    players.forEach(player => {
+
+      let points = 0;
+
+      /* 0 richtig geschätzt */
+
+      if (
+
+        player.guess === 0 &&
+
+        player.won === 0
+
+      ) {
+
+        points = 5;
+
+      }
+
+      /* RICHTIG GESCHÄTZT */
+
+      else if (
+
+        player.guess ===
+
+        player.won
+
+      ) {
+
+        points =
+
+          player.won * 10;
+
+      }
+
+      /* FALSCH GESCHÄTZT */
+
+      else {
+
+        points =
+
+          player.won;
+
+      }
+
+      player.total += points;
+
+      player.lastPoints =
+
+        points;
+
+    });
+
+    if (round === 10) {
+
+      showFinal();
+
+      return;
+
+    }
+
+    renderScoreboard();
+
+    document
+
+      .getElementById(
+
+        "completedRoundText"
+
+      )
+
+      .innerText =
+
+        "Runde " +
+
+        round +
+
+        " ist abgeschlossen.";
+
+    showSection("standings");
+
+  }
+
+  /* ========================= */
+
+  /* ZWISCHENSTAND */
+
+  /* ========================= */
+
+  function renderScoreboard() {
+
+    const sorted =
+
+      [...players]
+
+        .sort(
+
+          (a, b) =>
+
+            b.total - a.total
+
+        );
+
+    let html = `
+
+      <table class="scoreboard">
+
+        <tr>
+
+          <th>
+
+            Spieler
+
+          </th>
+
+          <th>
+
+            Runde
+
+          </th>
+
+          <th>
+
+            Gesamt
+
+          </th>
+
+        </tr>
+
+    `;
+
+    sorted.forEach(player => {
+
+      html += `
+
+        <tr>
+
+          <td>
+
+            ${escapeHTML(player.name)}
+
+          </td>
+
+          <td>
+
+            +${player.lastPoints}
+
+          </td>
+
+          <td>
+
+            <strong>
+
+              ${player.total}
+
+            </strong>
+
+          </td>
+
+        </tr>
+
+      `;
+
+    });
+
+    html +=
+
+      "</table>";
+
+    document
+
+      .getElementById("scoreTable")
+
+      .innerHTML =
+
+        html;
+
+  }
+
+  /* ========================= */
+
+  /* NÄCHSTE RUNDE */
+
+  /* ========================= */
+
+  function nextRound() {
+
+    round++;
+
+    renderRound();
+
+    showSection("game");
+
+  }
+
+  /* ========================= */
+
+  /* SPIELENDE */
+
+  /* ========================= */
+
+  function showFinal() {
+
+    const highest =
+
+      Math.max(
+
+        ...players.map(
+
+          player =>
+
+            player.total
+
+        )
+
+      );
+
+    const winners =
+
+      players.filter(
+
+        player =>
+
+          player.total ===
+
+          highest
+
+      );
+
+    let winnerText = "";
+
+    if (
+
+      winners.length === 1
+
+    ) {
+
+      winnerText =
+
+        "🏆 " +
+
+        escapeHTML(
+
+          winners[0].name
+
+        ) +
+
+        " gewinnt ESTIMO mit " +
+
+        highest +
+
+        " Punkten!";
+
+    }
+
+    else {
+
+      winnerText =
+
+        "🏆 Gleichstand! " +
+
+        winners
+
+          .map(
+
+            player =>
+
+              escapeHTML(
+
+                player.name
+
+              )
+
+          )
+
+          .join(" & ") +
+
+        " haben jeweils " +
+
+        highest +
+
+        " Punkte.";
+
+    }
+
+    document
+
+      .getElementById("winnerArea")
+
+      .innerHTML = `
+
+        <div class="winner">
+
+          ${winnerText}
+
+        </div>
+
+      `;
+
+    const sorted =
+
+      [...players]
+
+        .sort(
+
+          (a, b) =>
+
+            b.total - a.total
+
+        );
+
+    let html = `
+
+      <table class="scoreboard">
+
+        <tr>
+
+          <th>
+
+            Spieler
+
+          </th>
+
+          <th>
+
+            Punkte
+
+          </th>
+
+        </tr>
+
+    `;
+
+    sorted.forEach(player => {
+
+      html += `
+
+        <tr>
+
+          <td>
+
+            ${escapeHTML(player.name)}
+
+          </td>
+
+          <td>
+
+            <strong>
+
+              ${player.total}
+
+            </strong>
+
+          </td>
+
+        </tr>
+
+      `;
+
+    });
+
+    html +=
+
+      "</table>";
+
+    document
+
+      .getElementById("finalTable")
+
+      .innerHTML =
+
+        html;
+
+    showSection("finish");
+
+  }
+
+  /* ========================= */
+
+  /* NEUES SPIEL */
+
+  /* ========================= */
+
+  function newGame() {
+
+    players = [];
+
+    round = 1;
+
+    showSection("home");
+
+  }
+
+  /* ========================= */
+
+  /* SICHERE NAMENSAUSGABE */
+
+  /* ========================= */
+
+  function escapeHTML(text) {
+
+    const div =
+
+      document.createElement("div");
+
+    div.textContent =
+
+      text;
+
+    return div.innerHTML;
+
+  }
+
+</script>
 
 </body>
 
